@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BanqueApp.classes
 {
-    class MAD
+     class MAD
     {
         private double solde;
 
@@ -32,6 +32,11 @@ namespace BanqueApp.classes
         {
             return M1.solde < M2.solde ? true : false;
         }
+        public static MAD operator *(MAD M1, double D)
+        {
+            M1.solde *= D; 
+            return M1;
+        }
         public void afficher()
         {
             Console.WriteLine("votre solde est " + solde);
@@ -41,6 +46,10 @@ namespace BanqueApp.classes
             if (this.solde > 0)
                 return (true);
             return false;
+        } 
+        public string tostring()
+        {
+            return this.solde.ToString();
         }
     }
 }
